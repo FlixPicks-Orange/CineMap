@@ -1,0 +1,29 @@
+{
+    "manifest_version": 3,
+    "name": "FlixPicks Cinemap Test",
+    "description": "Simple overlay to interact with videos on a a webpage.",
+    "version": "1.0",
+    "action": {
+      "default_popup": "./popup/popup.html",
+      "default_icon": "./images/flix-picks-icon.png"
+    },
+    "content_scripts": [
+      {
+        "js": ["./scripts/cinemap-youtube.js"],
+        "matches": ["https://www.youtube.com/*"]
+      },
+      {
+        "js": ["./scripts/cinemap-netflix.js"],
+        "matches": ["https://www.netflix.com/watch/*"]
+      }
+    ],
+    "host_permissions": [
+      "https://developer.chrome.com/*",
+      "https://www.youtube.com/*"
+    ],
+    "permissions": [
+      "tabs",
+      "activeTab",
+      "scripting"
+    ]
+  }
